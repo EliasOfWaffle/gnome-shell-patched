@@ -18,7 +18,6 @@ Patch0: 0001-screenshot-Fix-code-typo.patch
 Patch1: 0001-screenshot-fix-broken-GLib.Error.matches-call.patch
 
 #Minimal Ubuntu and debian patches:
-Patch5: background_login.patch
 
 # Replace Epiphany with Firefox in the default favourite apps list
 Patch10001: gnome-shell-favourite-apps-firefox.patch
