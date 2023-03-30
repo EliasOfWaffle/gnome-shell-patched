@@ -173,6 +173,12 @@ easy to use experience.
 %autosetup -S git -n %{name}-%{tarball_version}
 
 %build
+export CC=clang
+export CXX=clang++
+export LLVM=1 
+export CC_LD=lld
+export CX_LD=lld
+
 %meson -Dextensions_app=false -Db_lto=true 
 %meson_build
 
