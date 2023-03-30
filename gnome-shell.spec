@@ -1,4 +1,5 @@
 %global tarball_version %%(echo %{version} | tr '~' '.')
+%global toolchain clang
 
 Name:           gnome-shell
 Version:        44.0
@@ -46,7 +47,9 @@ Patch40002: fix-timed-logout.patch
 %define gnome_settings_daemon_version 3.37.1
 
 BuildRequires:  bash-completion
-BuildRequires:  gcc
+BuildRequires:  clang
+BuildRequires:  llvm
+BuildRequires:  lld
 BuildRequires:  meson
 BuildRequires:  git
 BuildRequires:  pkgconfig(ibus-1.0) >= %{ibus_version}
@@ -170,7 +173,7 @@ easy to use experience.
 %autosetup -S git -n %{name}-%{tarball_version}
 
 %build
-%meson -Dextensions_app=false
+%meson -Dextensions_app=false -Db_lto=true 
 %meson_build
 
 %install
