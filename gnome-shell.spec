@@ -10,9 +10,11 @@
 
 %global tarball_version %%(echo %{version} | tr '~' '.')
 
+%global toolchain clang
+
 Name:           gnome-shell
 Version:        44.1
-Release:        %autorelease
+Release:        faster_%autorelease
 Summary:        Window management and application launching for GNOME
 
 License:        GPLv2+
@@ -168,7 +170,7 @@ easy to use experience.
 %autosetup -S git -n %{name}-%{tarball_version}
 
 %build
-%meson -Dextensions_app=false
+%meson --buildtype=release -Db_lto=true -Dextensions_app=false
 %meson_build
 
 %install
@@ -236,6 +238,10 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/org.gnome.Shell.Porta
 %{_mandir}/man1/gnome-shell.1*
 
 %changelog
+* Sat Mai 2023 Florian Müllner <fmuellner@gnome.org> - 44.1-faster
+- Use Clang Toolchain
+- Use LTO for default
+
 * Tue Apr 25 2023 Florian Müllner <fmuellner@gnome.org> - 44.1-1
 - Update to 44.1
 
