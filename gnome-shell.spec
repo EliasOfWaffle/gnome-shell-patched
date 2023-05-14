@@ -46,6 +46,7 @@ Patch40001: 0001-gdm-Work-around-failing-fingerprint-auth.patch
 %define gnome_settings_daemon_version 3.37.1
 
 BuildRequires:  bash-completion
+BuildRequires:  clang
 BuildRequires:  gcc
 BuildRequires:  meson
 BuildRequires:  git
