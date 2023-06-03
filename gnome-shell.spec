@@ -14,7 +14,7 @@
 
 Name:           gnome-shell
 Version:        44.2
-Release:        personal_%autorelease
+Release:        %autorelease.personal
 Summary:        Window management and application launching for GNOME
 
 License:        GPLv2+
