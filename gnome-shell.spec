@@ -10,11 +10,11 @@
 
 %global tarball_version %%(echo %{version} | tr '~' '.')
 
-%global toolchain clang
+%global toolchain gcc
 
 Name:           gnome-shell
-Version:        44.1
-Release:        faster_%autorelease
+Version:        44.2
+Release:        personal_%autorelease
 Summary:        Window management and application launching for GNOME
 
 License:        GPLv2+
@@ -171,7 +171,7 @@ easy to use experience.
 %autosetup -S git -n %{name}-%{tarball_version}
 
 %build
-%meson --buildtype=release -Db_lto=true -Dextensions_app=false
+%meson -Dextensions_app=false
 %meson_build
 
 %install
